@@ -12,9 +12,9 @@ import org.testng.Assert;
 
 import java.time.Duration;
 
-public class DialogContent extends Parent {
+public class DialogContent extends Parent{
 
-    public DialogContent () {
+    public DialogContent() {
         PageFactory.initElements(GWD.getDriver(), this);
         // Sevgili PageFactory sen bu sayfanın
         // sahibisin, senden ricam aşağıdaki locatorları
@@ -64,10 +64,10 @@ public class DialogContent extends Parent {
 
     @FindBy(xpath="//button[@type='submit']")
     public WebElement deleteDialogBtn;
-    public void deletItem(String searchText){
 
+    public void deleteItem(String searchText){
         mySendKeys(searchInput, searchText);
-        myClick(searchButton);
+        myClick(searchButton); // fuse bar ı çocukları ortaya çıkıyor
 
         //beklet
         //1. StaleElemetn hatası verdi : erken buldum tez kaybettim
@@ -82,5 +82,17 @@ public class DialogContent extends Parent {
         myClick(deleteImageBtn);
         myClick(deleteDialogBtn);
 
+        // silme ıslemı dıalogların ortak noktası olması sebebıyle buraya aldık. Silme islemi yapacagımız her seferınde tekrar tekrar kod yazmayalım dırekt cagıralım dıye aldık.
     }
+
+
+    public WebElement getWebElement(String strElement){
+        switch (strElement){
+            case "addButton": return this.addButton;
+            case "saveButton": return this.saveButton;
+        }
+
+        return null;
+    }
+
 }

@@ -3,10 +3,9 @@ package StepDefinitions;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 
-import javax.swing.event.ListDataListener;
 import java.util.List;
 
-public class _08_DataTableOrnek {
+public class DataTableOrnek {
            @When("write username {string}")
         public void writeUsername(String userName) {
             System.out.println("userName = " + userName);

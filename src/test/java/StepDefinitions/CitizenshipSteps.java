@@ -2,19 +2,12 @@ package StepDefinitions;
 
 import Pages.DialogContent;
 import Pages.LeftNav;
-import Utilities.GWD;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-public class _04_CitizenshipSteps {
+public class CitizenshipSteps {
     LeftNav ln = new LeftNav();
     DialogContent dc = new DialogContent();
 
@@ -51,6 +44,6 @@ public class _04_CitizenshipSteps {
 
     @When("User delete the {string}")
     public void userDeleteThe(String name) {
-    dc.deletItem(name);
+    dc.deleteItem(name);
     }
 }
