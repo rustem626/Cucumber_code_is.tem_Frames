@@ -14,6 +14,7 @@ import java.time.Duration;
 public class Parent {
 
     public WebDriverWait wait=new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(20));
+    protected WebElement nationalities;
 
     public void myClick(WebElement element){
         wait.until(ExpectedConditions.elementToBeClickable(element));
@@ -36,6 +37,7 @@ public class Parent {
     public void verifyContainsText(WebElement element, String value){
         wait.until(ExpectedConditions.textToBePresentInElement(element,value));
         Assert.assertTrue(element.getText().toLowerCase().contains(value.toLowerCase()));
+        //action la ESC ye basarak açık kutucuk veya mesaj var ise kapat
         new Actions(GWD.getDriver()).sendKeys(Keys.ESCAPE).build().perform();
     }
 

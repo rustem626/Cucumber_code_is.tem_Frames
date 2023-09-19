@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class DataTableSteps {
+public class i_DataTableSteps {
     LeftNav ln = new LeftNav();
     DialogContent dc = new DialogContent();
 
@@ -32,5 +32,27 @@ public class DataTableSteps {
             dc.myClick(linkWebElement);
         }
     }
-}
 
+
+    @And("User sending the keys in Dialog")
+    public void userSendingTheKeysInDialog(DataTable dt) {
+        List< List<String> >   items=  dt.asLists(String.class);
+
+        for (int i = 0; i < items.size(); i++) {
+            WebElement e=dc.getWebElement(items.get(i).get(0)); // 0. webelement
+            String yazi = items.get(i).get(1);//1. yazısı
+
+            dc.mySendKeys(e, yazi);
+        }
+    }
+
+
+    @And("User delete the element from Dialog")
+    public void userDeleteTheElementFromDialog(DataTable dt) {
+        List<String> silinecekler = dt.asList(String.class);
+
+        for (int i = 0; i < silinecekler.size(); i++) {
+            dc.deleteItem(silinecekler.get(i));
+        }
+    }
+}
