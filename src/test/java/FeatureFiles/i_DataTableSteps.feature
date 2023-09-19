@@ -52,30 +52,31 @@ Feature: DataTable Functionality
     Then Success message should be displayed
 
 
-  Scenario:  Create Fees
+  Scenario: Fee Functionality
     And Click on the element in LeftNav
-      | setup         |
-      | parameters    |
-      | nationalities |
+      | setup      |
+      | parameters |
+      | fees       |
 
     And Click on the element in Dialog
       | addButton |
 
     And User sending the keys in Dialog
-      | nameInput | Fees_Dollar |
+      | nameInput       | rustam1Fee1  |
+      | codeInput       | i2323        |
+      | integrationCode | 121          |
+      | priorityCode    | 2323         |
 
     And Click on the element in Dialog
+      | toggleBar  |
       | saveButton |
 
     Then Success message should be displayed
 
     And User delete the element from Dialog
-      | dollar |
+      | rustam1Fee1 |
 
     Then Success message should be displayed
-
-
-
 
 
 
